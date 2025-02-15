@@ -1,0 +1,39 @@
+.contact {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}
+
+.contact .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.contact h1 {
+  margin-top: 0;
+}
+
+.contact ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.contact ul li {
+  margin: 10px 0;
+}
+
+.cv-link {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #b8860b; /* Golden color */
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+.cv-link:hover {
+  background-color: #e8aa0f;
+}
