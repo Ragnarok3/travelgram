@@ -6,42 +6,74 @@
   }
   .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 20px;
   }
   .card {
-    background-color: white;
-    border-radius: 8px;
+    background-color: #fff;
+    border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden;
-    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    height: 100%;
+    transition: transform 0.3s, box-shadow 0.3s;
+
+    &:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
     img {
       width: 100%;
       height: 200px;
       object-fit: cover;
     }
     h3 {
-      margin: 16px;
-      font-size: 1.5em;
-      color: #333;
+      margin: 10px 0;
+      color: #333; /* Ensure text color is visible */
     }
     p {
-      margin: 0 16px 16px;
-      color: #666;
+      flex-grow: 1;
+      padding: 0 10px;
+      color: #666; /* Ensure text color is visible */
     }
     .visit-btn {
-      display: block;
-      margin: 16px;
-      padding: 10px 20px;
-      background-color: #b8860b; /* Dark golden color */
-      color: white;
-      text-align: center;
+      background-color: #DAA520; /* More visible golden color */
+      color: #fff;
+      padding: 10px;
       text-decoration: none;
-      border-radius: 4px;
-      transition: background-color 0.2s;
+      border-radius: 0 0 10px 10px;
+      display: block;
+      transition: background-color 0.3s;
+
+      &:hover {
+        background-color: #B8860B; /* Slightly darker golden color */
+      }
     }
-    .visit-btn:hover {
-      background-color: #8b6508; /* Darker shade of golden */
+  }
+  .loader {
+    text-align: center;
+    margin-top: 20px;
+    .spinner {
+      border: 4px solid rgba(0, 0, 0, 0.1);
+      border-top: 4px solid #007bff;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      animation: spin 1s linear infinite;
+    }
+    h4 {
+      margin-top: 10px;
+    }
+  }
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
     }
   }
 }

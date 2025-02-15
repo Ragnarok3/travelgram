@@ -1,13 +1,11 @@
 import React from "react";
 import Slider from "react-slick";
 import { Link } from "react-router-dom";
+import "./MostViewed.scss";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import "./MostViewed.scss";
 
 const MostViewed = ({ places }) => {
-  const sortedPlaces = [...places].sort((a, b) => b.views - a.views);
-
   const settings = {
     dots: true,
     infinite: true,
@@ -28,8 +26,7 @@ const MostViewed = ({ places }) => {
         breakpoint: 600,
         settings: {
           slidesToShow: 2,
-          slidesToScroll: 1,
-          initialSlide: 2
+          slidesToScroll: 1
         }
       },
       {
@@ -42,16 +39,23 @@ const MostViewed = ({ places }) => {
     ]
   };
 
+  const truncateText = (text, limit) => {
+    if (text.length > limit) {
+      return text.substring(0, limit) + "...";
+    }
+    return text;
+  };
+
   return (
     <div className="most-viewed">
       <h2>Most Viewed Places</h2>
       <Slider {...settings}>
-        {sortedPlaces.map((place) => (
-          <div className="card" key={place.id}>
+        {places.slice(0, 8).map((place) => (
+          <div className="card" key={place._id}>
             <img src={place.image} alt={place.name} />
             <h3>{place.name}</h3>
-            <p>{place.description}</p>
-            <Link to={`/place/${place.id}`} className="visit-btn">
+            <p>{truncateText(place.description, 50)}</p>
+            <Link to={`/place/${place._id}`} className="visit-btn">
               Visit
             </Link>
           </div>

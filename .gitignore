@@ -14,6 +14,8 @@ npm-debug.log*
 
 # Ignore environment variables
 .env
+client/.env
+server/.env
 
 # Ignore IDE specific files
 .vscode/
