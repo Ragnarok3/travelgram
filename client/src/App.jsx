@@ -12,6 +12,11 @@ import LogoutButton from './components/LogoutButton';
 import { AuthProvider, AuthContext } from './context/AuthContext';
 import './App.scss';
 
+// Placeholder for PrivateComponent
+const PrivateComponent = () => {
+  return <div>Private Component</div>;
+};
+
 const PrivateRoute = ({ element, ...rest }) => {
   const { user } = useContext(AuthContext);
   return user ? element : <Navigate to="/" />;
@@ -25,11 +30,12 @@ const App = () => {
           <Header />
           <main className="main-content">
             <Routes>
-              <Route exact path="/" element={<Home />} />
-              <Route path="/place/:id" element={<Details />} />
-              <Route path="/v1/activities/:id" element={<PrivateRoute element={<Activities />} />} />
+              <Route path="/" element={<Home />} />
               <Route path="/about" element={<About />} />
               <Route path="/contact" element={<Contact />} />
+              <Route path="/place/:id" element={<Details />} />
+              <Route path="/activities" element={<Activities />} />
+              <Route path="/private" element={<PrivateRoute element={<PrivateComponent />} />} />
             </Routes>
             <LoginButton />
             <LogoutButton />

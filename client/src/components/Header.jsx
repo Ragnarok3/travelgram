@@ -1,12 +1,14 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import "./Header.scss";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import './Header.scss';
 
 const Header = () => {
   return (
     <header className="header">
       <div className="container">
-        <h1 className="logo">Travel Website</h1>
+        <Link to="/" className="logo" title="Travelgram">
+          Travelgram
+        </Link>
         <nav>
           <ul>
             <li><Link to="/">Home</Link></li>
